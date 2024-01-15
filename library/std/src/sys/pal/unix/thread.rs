@@ -150,7 +150,7 @@ impl Thread {
         }
     }
 
-    #[cfg(any(target_os = "macos", target_os = "ios", target_os = "tvos", target_os = "watchos"))]
+    #[cfg(any(target_os = "macos", target_os = "ios", target_os = "tvos", target_os = "watchos", target_os = "xros"))]
     pub fn set_name(name: &CStr) {
         unsafe {
             let name = truncate_cstr::<{ libc::MAXTHREADNAMESIZE }>(name);
@@ -334,6 +334,7 @@ impl Drop for Thread {
     target_os = "ios",
     target_os = "tvos",
     target_os = "watchos",
+    target_os = "xros",
     target_os = "nto",
 ))]
 fn truncate_cstr<const MAX_WITH_NUL: usize>(cstr: &CStr) -> [libc::c_char; MAX_WITH_NUL] {

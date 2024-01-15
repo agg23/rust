@@ -286,6 +286,11 @@ trigger_files = [
     "library/std/src/os/windows"
 ]
 
+[autolabel."O-xros"]
+trigger_files = [
+    "library/std/src/os/xros"
+]
+
 [autolabel."T-bootstrap"]
 trigger_files = [
     "x.py",

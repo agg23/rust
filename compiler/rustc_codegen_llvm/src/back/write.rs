@@ -912,6 +912,7 @@ fn target_is_apple(cgcx: &CodegenContext<LlvmCodegenBackend>) -> bool {
         || cgcx.opts.target_triple.triple().contains("-darwin")
         || cgcx.opts.target_triple.triple().contains("-tvos")
         || cgcx.opts.target_triple.triple().contains("-watchos")
+        || cgcx.opts.target_triple.triple().contains("-xros")
 }
 
 fn target_is_aix(cgcx: &CodegenContext<LlvmCodegenBackend>) -> bool {

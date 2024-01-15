@@ -1542,6 +1542,9 @@ supported_targets! {
     ("aarch64-apple-watchos", aarch64_apple_watchos),
     ("aarch64-apple-watchos-sim", aarch64_apple_watchos_sim),
 
+    ("aarch64-apple-xros", aarch64_apple_xros),
+    ("aarch64-apple-xros-sim", aarch64_apple_xros_sim),
+
     ("armebv7r-none-eabi", armebv7r_none_eabi),
     ("armebv7r-none-eabihf", armebv7r_none_eabihf),
     ("armv7r-none-eabi", armv7r_none_eabi),

@@ -14,6 +14,7 @@ use crate::os::unix::io::AsRawFd;
 #[cfg(any(
     target_os = "macos",
     target_os = "watchos",
+    target_os = "xros",
     target_os = "tvos",
     target_os = "freebsd",
     all(target_os = "linux", target_env = "gnu"),
@@ -33,6 +34,7 @@ use libc::{c_int, pid_t};
     target_os = "l4re",
     target_os = "tvos",
     target_os = "watchos",
+    target_os = "xros",
 )))]
 use libc::{gid_t, uid_t};
 

@@ -92,7 +92,8 @@ impl Timespec {
             target_os = "macos",
             target_os = "ios",
             target_os = "tvos",
-            target_os = "watchos"
+            target_os = "watchos",
+            target_os = "xros",
         ))]
         let (tv_sec, tv_nsec) =
             if (tv_sec <= 0 && tv_sec > i64::MIN) && (tv_nsec < 0 && tv_nsec > -1_000_000_000) {
@@ -294,6 +295,7 @@ impl Instant {
             target_os = "macos",
             target_os = "ios",
             target_os = "watchos",
+            target_os = "xros",
             target_os = "tvos"
         ))]
         const clock_id: libc::clockid_t = libc::CLOCK_UPTIME_RAW;
@@ -301,6 +303,7 @@ impl Instant {
             target_os = "macos",
             target_os = "ios",
             target_os = "watchos",
+            target_os = "xros",
             target_os = "tvos"
         )))]
         const clock_id: libc::clockid_t = libc::CLOCK_MONOTONIC;

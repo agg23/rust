@@ -2902,7 +2902,7 @@ fn add_apple_sdk(cmd: &mut dyn Linker, sess: &Session, flavor: LinkerFlavor) {
     let os = &sess.target.os;
     let llvm_target = &sess.target.llvm_target;
     if sess.target.vendor != "apple"
-        || !matches!(os.as_ref(), "ios" | "tvos" | "watchos" | "macos")
+        || !matches!(os.as_ref(), "ios" | "tvos" | "watchos" | "xros" | "macos")
         || !matches!(flavor, LinkerFlavor::Darwin(..))
     {
         return;
@@ -2927,6 +2927,8 @@ fn add_apple_sdk(cmd: &mut dyn Linker, sess: &Session, flavor: LinkerFlavor) {
         ("arm64_32", "watchos") => "watchos",
         ("aarch64", "watchos") if llvm_target.ends_with("-simulator") => "watchsimulator",
         ("aarch64", "watchos") => "watchos",
+        ("aarch64", "xros") if llvm_target.ends_with("-simulator") => "xrossimulator",
+        ("aarch64", "xros") => "xros",
         ("arm", "watchos") => "watchos",
         (_, "macos") => "macosx",
         _ => {
@@ -2983,6 +2985,9 @@ fn get_apple_sdk_root(sdk_name: &str) -> Result<String, errors::AppleSdkRootErro
                     || sdkroot.contains("MacOSX.platform") => {}
             "watchsimulator"
                 if sdkroot.contains("WatchOS.platform") || sdkroot.contains("MacOSX.platform") => {}
+            "xros" if sdkroot.contains("XROS.platform") || sdkroot.contains("MacOSX.platform") => {}
+            "xrossimulator"
+                if sdkroot.contains("XROS.platform") || sdkroot.contains("MacOSX.platform") => {}
             // Ignore `SDKROOT` if it's not a valid path.
             _ if !p.is_absolute() || p == Path::new("/") || !p.exists() => {}
             _ => return Ok(sdkroot),

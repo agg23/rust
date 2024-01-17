@@ -34,7 +34,6 @@ use libc::{c_int, pid_t};
     target_os = "l4re",
     target_os = "tvos",
     target_os = "watchos",
-    target_os = "xros",
 )))]
 use libc::{gid_t, uid_t};
 

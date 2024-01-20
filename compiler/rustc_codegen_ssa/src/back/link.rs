@@ -2927,7 +2927,7 @@ fn add_apple_sdk(cmd: &mut dyn Linker, sess: &Session, flavor: LinkerFlavor) {
         ("arm64_32", "watchos") => "watchos",
         ("aarch64", "watchos") if llvm_target.ends_with("-simulator") => "watchsimulator",
         ("aarch64", "watchos") => "watchos",
-        ("aarch64", "xros") if llvm_target.ends_with("-simulator") => "xrossimulator",
+        ("aarch64", "xros") if llvm_target.ends_with("-simulator") => "xrsimulator",
         ("aarch64", "xros") => "xros",
         ("arm", "watchos") => "watchos",
         (_, "macos") => "macosx",

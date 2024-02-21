@@ -203,7 +203,8 @@ pub fn sdk_version(platform: u32) -> Option<(u32, u32)> {
         | object::macho::PLATFORM_TVOSSIMULATOR
         | object::macho::PLATFORM_MACCATALYST => Some((16, 2)),
         object::macho::PLATFORM_WATCHOS | object::macho::PLATFORM_WATCHOSSIMULATOR => Some((9, 1)),
-        object::macho::PLATFORM_XROS | object::macho::PLATFORM_XROSSIMULATOR => Some((1, 0)),
+        // TODO: Upgrade to yet unreleased `object-rs` implementation with xrOS platform definition
+        11 | 12 => Some((1, 0)),
         _ => None,
     }
 }
@@ -218,8 +219,9 @@ pub fn platform(target: &Target) -> Option<u32> {
         ("watchos", _) => object::macho::PLATFORM_WATCHOS,
         ("tvos", "sim") => object::macho::PLATFORM_TVOSSIMULATOR,
         ("tvos", _) => object::macho::PLATFORM_TVOS,
-        ("xros", "sim") => object::macho::PLATFORM_XROSSIMULATOR,
-        ("xros", _) => object::macho::PLATFORM_XROS,
+        // TODO: Upgrade to yet unreleased `object-rs` implementation with xrOS platform definition
+        ("xros", "sim") => 12,
+        ("xros", _) => 11,
         _ => return None,
     })
 }

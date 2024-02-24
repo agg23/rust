@@ -1648,10 +1648,10 @@ fn test_file_times() {
     use crate::os::tvos::fs::FileTimesExt;
     #[cfg(target_os = "watchos")]
     use crate::os::watchos::fs::FileTimesExt;
-    #[cfg(target_os = "xros")]
-    use crate::os::xros::fs::FileTimesExt;
     #[cfg(windows)]
     use crate::os::windows::fs::FileTimesExt;
+    #[cfg(target_os = "xros")]
+    use crate::os::xros::fs::FileTimesExt;
 
     let tmp = tmpdir();
     let file = File::create(tmp.join("foo")).unwrap();
@@ -1714,7 +1714,13 @@ fn test_file_times() {
 }
 
 #[test]
-#[cfg(any(target_os = "macos", target_os = "ios", target_os = "tvos", target_os = "watchos", target_os = "xros"))]
+#[cfg(any(
+    target_os = "macos",
+    target_os = "ios",
+    target_os = "tvos",
+    target_os = "watchos",
+    target_os = "xros"
+))]
 fn test_file_times_pre_epoch_with_nanos() {
     #[cfg(target_os = "ios")]
     use crate::os::ios::fs::FileTimesExt;

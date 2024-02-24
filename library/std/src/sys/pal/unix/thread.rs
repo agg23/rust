@@ -150,7 +150,13 @@ impl Thread {
         }
     }
 
-    #[cfg(any(target_os = "macos", target_os = "ios", target_os = "tvos", target_os = "watchos", target_os = "xros"))]
+    #[cfg(any(
+        target_os = "macos",
+        target_os = "ios",
+        target_os = "watchos",
+        target_os = "xros",
+        target_os = "tvos"
+    ))]
     pub fn set_name(name: &CStr) {
         unsafe {
             let name = truncate_cstr::<{ libc::MAXTHREADNAMESIZE }>(name);

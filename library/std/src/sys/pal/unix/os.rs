@@ -431,7 +431,13 @@ pub fn current_exe() -> io::Result<PathBuf> {
     Ok(PathBuf::from(OsString::from_vec(e)))
 }
 
-#[cfg(any(target_os = "macos", target_os = "ios", target_os = "tvos", target_os = "watchos", target_os = "xros"))]
+#[cfg(any(
+    target_os = "macos",
+    target_os = "ios",
+    target_os = "watchos",
+    target_os = "xros",
+    target_os = "tvos"
+))]
 pub fn current_exe() -> io::Result<PathBuf> {
     unsafe {
         let mut sz: u32 = 0;

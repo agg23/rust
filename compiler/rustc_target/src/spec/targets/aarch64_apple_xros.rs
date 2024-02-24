@@ -12,7 +12,7 @@ pub fn target() -> Target {
         data_layout: "e-m:o-i64:64-i128:128-n32:64-S128".into(),
         arch: arch.target_arch(),
         options: TargetOptions {
-            features: "+neon,+fp-armv8,+apple-a7".into(),
+            features: "+neon,+fp-armv8,+apple-a12".into(),
             max_atomic_width: Some(128),
             frame_pointer: FramePointer::NonLeaf,
             ..base

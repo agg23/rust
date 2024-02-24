@@ -6612,7 +6612,3 @@ dependencies = [
  "crossbeam-utils",
  "flate2",
 ]
-
-[[patch.unused]]
-name = "libc"
-version = "0.2.151"

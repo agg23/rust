@@ -149,6 +149,8 @@ pub mod solid;
 pub(crate) mod tvos;
 #[cfg(target_os = "uefi")]
 pub mod uefi;
+#[cfg(target_os = "visionos")]
+pub(crate) mod visionos;
 #[cfg(target_os = "vita")]
 pub mod vita;
 #[cfg(target_os = "vxworks")]
@@ -157,8 +159,6 @@ pub mod vxworks;
 pub(crate) mod watchos;
 #[cfg(target_os = "xous")]
 pub mod xous;
-#[cfg(target_os = "xros")]
-pub(crate) mod xros;
 
 #[cfg(any(unix, target_os = "wasi", doc))]
 pub mod fd;

@@ -39,7 +39,7 @@ pub(super) use self::impl_bsd::peer_cred;
     target_os = "ios",
     target_os = "tvos",
     target_os = "watchos",
-    target_os = "xros"
+    target_os = "visionos"
 ))]
 pub(super) use self::impl_mac::peer_cred;
 
@@ -107,7 +107,7 @@ mod impl_bsd {
     target_os = "ios",
     target_os = "tvos",
     target_os = "watchos",
-    target_os = "xros"
+    target_os = "visionos"
 ))]
 mod impl_mac {
     use super::UCred;

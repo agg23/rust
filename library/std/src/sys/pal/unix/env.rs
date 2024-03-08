@@ -53,10 +53,10 @@ pub mod os {
     pub const EXE_EXTENSION: &str = "";
 }
 
-#[cfg(target_os = "xros")]
+#[cfg(target_os = "visionos")]
 pub mod os {
     pub const FAMILY: &str = "unix";
-    pub const OS: &str = "xros";
+    pub const OS: &str = "visionos";
     pub const DLL_PREFIX: &str = "lib";
     pub const DLL_SUFFIX: &str = ".dylib";
     pub const DLL_EXTENSION: &str = "dylib";

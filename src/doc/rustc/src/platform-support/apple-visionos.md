@@ -1,7 +1,7 @@
-# aarch64-apple-xros\*
+# aarch64-apple-visionos\*
 
--   aarch64-apple-xros
--   aarch64-apple-xros-sim
+-   aarch64-apple-visionos
+-   aarch64-apple-visionos-sim
 
 **Tier: 3**
 
@@ -26,7 +26,7 @@ The targets can be built by enabling them for a `rustc` build, for example:
 ```toml
 [build]
 build-stage = 1
-target = ["aarch64-apple-xros-sim"]
+target = ["aarch64-apple-visionos-sim"]
 ```
 
 ## Building Rust programs
@@ -36,7 +36,7 @@ _Note: Building for this target requires the corresponding visionOS SDK, as prov
 Rust programs can be built for these targets, if `rustc` has been built with support for them, for example:
 
 ```text
-rustc --target aarch64-apple-xros-sim your-code.rs
+rustc --target aarch64-apple-visionos-sim your-code.rs
 ```
 
 ## Testing

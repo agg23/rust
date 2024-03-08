@@ -79,14 +79,14 @@ mod platform {
     pub use crate::os::solaris::*;
     #[cfg(target_os = "tvos")]
     pub use crate::os::tvos::*;
+    #[cfg(target_os = "visionos")]
+    pub use crate::os::visionos::*;
     #[cfg(target_os = "vita")]
     pub use crate::os::vita::*;
     #[cfg(target_os = "vxworks")]
     pub use crate::os::vxworks::*;
     #[cfg(target_os = "watchos")]
     pub use crate::os::watchos::*;
-    #[cfg(target_os = "xros")]
-    pub use crate::os::xros::*;
 }
 
 pub mod ffi;

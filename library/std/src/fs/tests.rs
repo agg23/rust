@@ -1646,12 +1646,12 @@ fn test_file_times() {
     use crate::os::macos::fs::FileTimesExt;
     #[cfg(target_os = "tvos")]
     use crate::os::tvos::fs::FileTimesExt;
+    #[cfg(target_os = "visionos")]
+    use crate::os::visionos::fs::FileTimesExt;
     #[cfg(target_os = "watchos")]
     use crate::os::watchos::fs::FileTimesExt;
     #[cfg(windows)]
     use crate::os::windows::fs::FileTimesExt;
-    #[cfg(target_os = "xros")]
-    use crate::os::xros::fs::FileTimesExt;
 
     let tmp = tmpdir();
     let file = File::create(tmp.join("foo")).unwrap();
@@ -1664,7 +1664,7 @@ fn test_file_times() {
         target_os = "macos",
         target_os = "ios",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
         target_os = "tvos",
     ))]
     let created = SystemTime::UNIX_EPOCH + Duration::from_secs(32123);
@@ -1673,7 +1673,7 @@ fn test_file_times() {
         target_os = "macos",
         target_os = "ios",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
         target_os = "tvos",
     ))]
     {
@@ -1705,7 +1705,7 @@ fn test_file_times() {
         target_os = "macos",
         target_os = "ios",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
         target_os = "tvos",
     ))]
     {
@@ -1719,7 +1719,7 @@ fn test_file_times() {
     target_os = "ios",
     target_os = "tvos",
     target_os = "watchos",
-    target_os = "xros"
+    target_os = "visionos"
 ))]
 fn test_file_times_pre_epoch_with_nanos() {
     #[cfg(target_os = "ios")]
@@ -1728,10 +1728,10 @@ fn test_file_times_pre_epoch_with_nanos() {
     use crate::os::macos::fs::FileTimesExt;
     #[cfg(target_os = "tvos")]
     use crate::os::tvos::fs::FileTimesExt;
+    #[cfg(target_os = "visionos")]
+    use crate::os::visionos::fs::FileTimesExt;
     #[cfg(target_os = "watchos")]
     use crate::os::watchos::fs::FileTimesExt;
-    #[cfg(target_os = "xros")]
-    use crate::os::xros::fs::FileTimesExt;
 
     let tmp = tmpdir();
     let file = File::create(tmp.join("foo")).unwrap();

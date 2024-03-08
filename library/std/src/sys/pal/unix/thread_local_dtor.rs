@@ -80,7 +80,7 @@ pub unsafe fn register_dtor(t: *mut u8, dtor: unsafe extern "C" fn(*mut u8)) {
     target_os = "macos",
     target_os = "ios",
     target_os = "watchos",
-    target_os = "xros",
+    target_os = "visionos",
     target_os = "tvos"
 ))]
 pub unsafe fn register_dtor(t: *mut u8, dtor: unsafe extern "C" fn(*mut u8)) {

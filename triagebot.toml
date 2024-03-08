@@ -286,9 +286,9 @@ trigger_files = [
     "library/std/src/os/windows"
 ]
 
-[autolabel."O-xros"]
+[autolabel."O-visionos"]
 trigger_files = [
-    "library/std/src/os/xros"
+    "library/std/src/os/visionos"
 ]
 
 [autolabel."T-bootstrap"]

@@ -1,4 +1,4 @@
-//! xrOS-specific raw type definitions
+//! visionos-specific raw type definitions
 
 #![stable(feature = "raw_ext", since = "1.1.0")]
 #![deprecated(

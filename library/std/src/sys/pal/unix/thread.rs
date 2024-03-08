@@ -154,7 +154,7 @@ impl Thread {
         target_os = "macos",
         target_os = "ios",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
         target_os = "tvos"
     ))]
     pub fn set_name(name: &CStr) {
@@ -340,7 +340,7 @@ impl Drop for Thread {
     target_os = "ios",
     target_os = "tvos",
     target_os = "watchos",
-    target_os = "xros",
+    target_os = "visionos",
     target_os = "nto",
 ))]
 fn truncate_cstr<const MAX_WITH_NUL: usize>(cstr: &CStr) -> [libc::c_char; MAX_WITH_NUL] {

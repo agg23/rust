@@ -23,7 +23,7 @@ use crate::sys_common::{AsInner, AsInnerMut, FromInner, IntoInner};
     target_os = "ios",
     target_os = "tvos",
     target_os = "watchos",
-    target_os = "xros",
+    target_os = "visionos",
 ))]
 use crate::sys::weak::syscall;
 #[cfg(any(target_os = "android", target_os = "macos", target_os = "solaris"))]
@@ -36,7 +36,7 @@ use libc::{c_int, mode_t};
     target_os = "ios",
     target_os = "tvos",
     target_os = "watchos",
-    target_os = "xros",
+    target_os = "visionos",
     target_os = "solaris",
     all(target_os = "linux", target_env = "gnu")
 ))]
@@ -383,7 +383,7 @@ pub struct FileTimes {
         target_os = "macos",
         target_os = "ios",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
         target_os = "tvos"
     ))]
     created: Option<SystemTime>,
@@ -563,7 +563,7 @@ impl FileAttr {
         target_os = "ios",
         target_os = "tvos",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
     ))]
     pub fn created(&self) -> io::Result<SystemTime> {
         Ok(SystemTime::new(self.stat.st_birthtime as i64, self.stat.st_birthtime_nsec as i64))
@@ -576,7 +576,7 @@ impl FileAttr {
         target_os = "ios",
         target_os = "tvos",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
         target_os = "vita",
     )))]
     pub fn created(&self) -> io::Result<SystemTime> {
@@ -661,7 +661,7 @@ impl FileTimes {
         target_os = "macos",
         target_os = "ios",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
         target_os = "tvos"
     ))]
     pub fn set_created(&mut self, t: SystemTime) {
@@ -954,7 +954,7 @@ impl DirEntry {
         target_os = "ios",
         target_os = "tvos",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
         target_os = "linux",
         target_os = "emscripten",
         target_os = "android",
@@ -991,7 +991,7 @@ impl DirEntry {
         target_os = "ios",
         target_os = "tvos",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
         target_os = "netbsd",
         target_os = "openbsd",
         target_os = "freebsd",
@@ -1011,7 +1011,7 @@ impl DirEntry {
         target_os = "ios",
         target_os = "tvos",
         target_os = "watchos",
-        target_os = "xros",
+        target_os = "visionos",
         target_os = "netbsd",
         target_os = "openbsd",
         target_os = "freebsd",
@@ -1181,7 +1181,7 @@ impl File {
             target_os = "ios",
             target_os = "tvos",
             target_os = "watchos",
-            target_os = "xros",
+            target_os = "visionos",
         ))]
         unsafe fn os_fsync(fd: c_int) -> c_int {
             libc::fcntl(fd, libc::F_FULLFSYNC)
@@ -1191,7 +1191,7 @@ impl File {
             target_os = "ios",
             target_os = "tvos",
             target_os = "watchos",
-            target_os = "xros",
+            target_os = "visionos",
         )))]
         unsafe fn os_fsync(fd: c_int) -> c_int {
             libc::fsync(fd)
@@ -1207,7 +1207,7 @@ impl File {
             target_os = "ios",
             target_os = "tvos",
             target_os = "watchos",
-            target_os = "xros",
+            target_os = "visionos",
         ))]
         unsafe fn os_datasync(fd: c_int) -> c_int {
             libc::fcntl(fd, libc::F_FULLFSYNC)
@@ -1234,7 +1234,7 @@ impl File {
             target_os = "netbsd",
             target_os = "openbsd",
             target_os = "watchos",
-            target_os = "xros",
+            target_os = "visionos",
             target_os = "nto",
             target_os = "hurd",
         )))]
@@ -1345,7 +1345,7 @@ impl File {
                     io::ErrorKind::Unsupported,
                     "setting file times not supported",
                 ))
-            } else if #[cfg(any(target_os = "macos", target_os = "ios", target_os = "tvos", target_os = "watchos", target_os = "xros"))] {
+            } else if #[cfg(any(target_os = "macos", target_os = "ios", target_os = "tvos", target_os = "watchos", target_os = "visionos"))] {
                 let mut buf = [mem::MaybeUninit::<libc::timespec>::uninit(); 3];
                 let mut num_times = 0;
                 let mut attrlist: libc::attrlist = unsafe { mem::zeroed() };
@@ -1810,7 +1810,7 @@ fn open_to_and_set_permissions(
     target_os = "ios",
     target_os = "tvos",
     target_os = "watchos",
-    target_os = "xros",
+    target_os = "visionos",
 )))]
 pub fn copy(from: &Path, to: &Path) -> io::Result<u64> {
     let (mut reader, reader_metadata) = open_from(from)?;
@@ -1841,7 +1841,7 @@ pub fn copy(from: &Path, to: &Path) -> io::Result<u64> {
     target_os = "macos",
     target_os = "ios",
     target_os = "watchos",
-    target_os = "xros",
+    target_os = "visionos",
     target_os = "tvos"
 ))]
 pub fn copy(from: &Path, to: &Path) -> io::Result<u64> {
